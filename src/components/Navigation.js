@@ -1,0 +1,23 @@
+import React from 'react';
+import { Outlet, Link } from 'react-router-dom';
+import './Navigation.scss';
+
+const Navigation = () => {
+  return (
+    <nav>
+      <ul>
+        <li>
+          <Link to="/page2">Page 2</Link>
+        </li>
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+        <li>
+          <Link to="/page1">Page 1</Link>
+        </li>
+      </ul>
+    </nav>
+  );
+};
+
+export default Navigation;
