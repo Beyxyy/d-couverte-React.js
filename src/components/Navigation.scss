@@ -1,0 +1,13 @@
+ul {
+  background-color: blue;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  li {
+    color: white;
+    a {
+      color: white;
+      text-decoration: none;
+    }
+  }
+}
