@@ -9,7 +9,8 @@ function getForm() {
   let recette_storage = {};
   recette_array.forEach((e) => {
     console.log(e.getAttribute('name'));
-    recette_storage[e.getAttribute('name')=e.value];
+    // console.log(e.values);
+    recette_storage[e.getAttribute('name')] = e.value;
     console.log(recette_storage);
   });
 }
@@ -33,7 +34,7 @@ const PageComponent = () => {
           titre
           <input name="titre" type="text" />
         </label>
-        <input type="submit" onClick={getForm} />
+        <input type="submit" name="valid" onClick={getForm} />
       </form>
     </div>
   );
