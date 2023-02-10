@@ -1,21 +1,29 @@
-import React from 'react';
-
-function getForm() {
-  event.preventDefault();
-  let form = document.querySelector('#form_recette');
-  console.log(form.elements);
-  let recette_array = Array.from(form.elements);
-  console.log(recette_array);
-  let recette_storage = {};
-  recette_array.forEach((e) => {
-    console.log(e.getAttribute('name'));
-    // console.log(e.values);
-    recette_storage[e.getAttribute('name')] = e.value;
-    console.log(recette_storage);
-  });
-}
+import React, { useState } from 'react';
 
 const PageComponent = () => {
+  const [recipes, setRecipe] = useState(
+    JSON.parse(localStorage.getItem('recette')) || []
+  );
+
+  function getForm(event) {
+    event.preventDefault();
+
+    let form = document.querySelector('#form_recette');
+    console.log(form.elements);
+    let recette_array = Array.from(form.elements);
+    console.log(recette_array);
+    let recette_storage = {};
+    recette_array.forEach((e) => {
+      // console.log(e.getAttribute('name'));
+      // console.log(e.values);
+      recette_storage[e.getAttribute('name')] = e.value;
+    });
+    localStorage.setItem(
+      'recette',
+      JSON.stringify([...recipes, recette_storage])
+    );
+    console.log();
+  }
   return (
     <div>
       <h1>Page test 1</h1>
